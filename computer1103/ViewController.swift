@@ -10,7 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     var temp1:Double = 0
+    var temp2:String = ""
+    var temp3:Int = 0
     var operatorflug:Double = 0
+    var POT:Bool = true
+    var i:Int = 1
+    
     
     @IBAction func zero(_ sender: Any) {
         result.text = result.text! + "0"
@@ -87,9 +92,28 @@ class ViewController: UIViewController {
         result.text = ""
         operatorflug = 1
     }
+    @IBAction func sign(_ sender: Any) {
+        temp3 = 0 - Int(result.text!)!
+        result.text = "\(temp3)"
+    }
     @IBAction func point(_ sender: Any) {
+        if(POT)
+        {
+            result.text = result.text! + "."
+        }
+        POT = false
+    }
+    @IBAction func omit(_ sender: Any) {
+        POT = true
+        if(result.text != "")
+        {
+            temp2 = result.text!
+            temp2.remove(at: temp2.index(before:temp2.endIndex))
+            result.text = temp2
+        }
     }
     @IBAction func cancle(_ sender: Any) {
+        POT = true
         result.text = ""
     }
     override func viewDidLoad() {
