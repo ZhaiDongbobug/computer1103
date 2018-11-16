@@ -14,7 +14,9 @@ class ViewController: UIViewController {
     var temp3:Int = 0
     var operatorflug:Double = 0
     var POT:Bool = true
-    var i:Int = 1
+    var i:Double = 0
+    var j:Double = 0
+    var k:Double = 0
     
     
     @IBAction func zero(_ sender: Any) {
@@ -53,13 +55,15 @@ class ViewController: UIViewController {
     @IBAction func equal(_ sender: Any) {
         if(operatorflug == 1)
         {
-            temp1 = temp1 + Double(result.text!)!
+            temp1 = j + Double(result.text!)!
             result.text = "\(temp1)"
+            j=0
         }
         if(operatorflug == 2)
         {
-            temp1 = temp1 - Double(result.text!)!
+            temp1 = i - Double(result.text!)!
             result.text = "\(temp1)"
+            i = temp1
         }
         if(operatorflug == 3)
         {
@@ -83,13 +87,45 @@ class ViewController: UIViewController {
         operatorflug = 3
     }
     @IBAction func reduce(_ sender: Any) {
+        if(operatorflug == 1)
+        {
+            result.text = "\(temp1)"
+        }
+        if(operatorflug == 3)
+        {
+            result.text = "\(temp1)"
+        }
+        if(operatorflug == 4)
+        {
+            result.text = "\(temp1)"
+        }
         temp1 = Double(result.text!)!
         result.text = ""
+        if(k == 0)
+        {
+            i = temp1
+            k = 1
+            temp1 = 0
+        }
+        i -= temp1
         operatorflug = 2
     }
     @IBAction func plus(_ sender: Any) {
+        if(operatorflug == 2)
+        {
+            result.text = "\(temp1)"
+        }
+        if(operatorflug == 3)
+        {
+            result.text = "\(temp1)"
+        }
+        if(operatorflug == 4)
+        {
+            result.text = "\(temp1)"
+        }
         temp1 = Double(result.text!)!
         result.text = ""
+        j += temp1
         operatorflug = 1
     }
     @IBAction func sign(_ sender: Any) {
