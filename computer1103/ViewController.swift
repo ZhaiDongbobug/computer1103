@@ -14,10 +14,8 @@ class ViewController: UIViewController {
     var temp3:Int = 0
     var operatorflug:Double = 0
     var POT:Bool = true
-    var i:Double = 0
+    var i:Double = 0//i=double(result.text!)
     var j:Double = 0
-    var k:Double = 0
-    
     
     @IBAction func zero(_ sender: Any) {
         result.text = result.text! + "0"
@@ -55,77 +53,129 @@ class ViewController: UIViewController {
     @IBAction func equal(_ sender: Any) {
         if(operatorflug == 1)
         {
-            temp1 = j + Double(result.text!)!
-            result.text = "\(temp1)"
-            j=0
+            i = i + Double(result.text!)!
+            result.text = String(i)
+            i = 0
         }
         if(operatorflug == 2)
         {
-            temp1 = i - Double(result.text!)!
-            result.text = "\(temp1)"
-            i = temp1
+            i = i - Double(result.text!)!
+            result.text = String(i)
+            i = 0
         }
         if(operatorflug == 3)
         {
             temp1 = temp1 * Double(result.text!)!
-            result.text = "\(temp1)"
+            result.text = String(i)
+            i = 0
         }
         if(operatorflug == 4)
         {
             temp1 = temp1 / Double(result.text!)!
-            result.text = "\(temp1)"
+            result.text = String(i)
+            i = 0
         }
     }
     @IBAction func divide(_ sender: Any) {
         temp1 = Double(result.text!)!
         result.text = ""
+        if(operatorflug == 0)
+        {
+            i = temp1
+        }
+        if(operatorflug == 1)
+        {
+            i += temp1
+        }
+        if(operatorflug == 2)
+        {
+            i -= temp1
+        }
+        if(operatorflug == 3)
+        {
+            i *= temp1
+        }
+        if(operatorflug == 4)
+        {
+            i /= temp1
+        }
         operatorflug = 4
     }
     @IBAction func ride(_ sender: Any) {
         temp1 = Double(result.text!)!
         result.text = ""
+        if(operatorflug == 0)
+        {
+            i = temp1
+        }
+        if(operatorflug == 1)
+        {
+            j = temp1
+        }
+        if(operatorflug == 2)
+        {
+             j = temp1
+        }
+        if(operatorflug == 3)
+        {
+            j *= temp1
+        }
+        if(operatorflug == 4)
+        {
+            i /= temp1
+        }
         operatorflug = 3
     }
     @IBAction func reduce(_ sender: Any) {
+        
+        temp1 = Double(result.text!)!
+        result.text = ""
+        if(operatorflug == 0)
+        {
+            i = temp1
+        }
         if(operatorflug == 1)
         {
-            result.text = "\(temp1)"
+            i += temp1
+        }
+        if(operatorflug == 2)
+        {
+            i -= temp1
         }
         if(operatorflug == 3)
         {
-            result.text = "\(temp1)"
+            i *= temp1
         }
         if(operatorflug == 4)
         {
-            result.text = "\(temp1)"
+            i /= temp1
         }
-        temp1 = Double(result.text!)!
-        result.text = ""
-        if(k == 0)
-        {
-            i = temp1
-            k = 1
-            temp1 = 0
-        }
-        i -= temp1
         operatorflug = 2
     }
     @IBAction func plus(_ sender: Any) {
+        
+        temp1 = Double(result.text!)!
+        result.text = ""
+        if(operatorflug == 0)
+        {
+            i = temp1
+        }
+        if(operatorflug == 1)
+        {
+            i += temp1
+        }
         if(operatorflug == 2)
         {
-            result.text = "\(temp1)"
+            i -= temp1
         }
         if(operatorflug == 3)
         {
-            result.text = "\(temp1)"
+            i *= temp1
         }
         if(operatorflug == 4)
         {
-            result.text = "\(temp1)"
+            i /= temp1
         }
-        temp1 = Double(result.text!)!
-        result.text = ""
-        j += temp1
         operatorflug = 1
     }
     @IBAction func sign(_ sender: Any) {
@@ -150,7 +200,9 @@ class ViewController: UIViewController {
     }
     @IBAction func cancle(_ sender: Any) {
         POT = true
+        operatorflug = 0
         result.text = ""
+        i = 0
     }
     override func viewDidLoad() {
         super.viewDidLoad()
