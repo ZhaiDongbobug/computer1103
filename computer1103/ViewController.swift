@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var POT:Bool = true
     var i:Double = 0//i=double(result.text!)
     var j:Double = 0
+    var oper:Int = 0//运算符保存
     
     @IBAction func zero(_ sender: Any) {
         result.text = result.text! + "0"
@@ -65,13 +66,43 @@ class ViewController: UIViewController {
         }
         if(operatorflug == 3)
         {
-            temp1 = temp1 * Double(result.text!)!
+            j = j * Double(result.text!)!
+            if(oper != 0)
+            {
+                if(oper == 1)
+                {
+                    i=i+j
+                }
+                if(oper == 2)
+                {
+                    i=i-j
+                }
+            }
+            else
+            {
+                i=j
+            }
             result.text = String(i)
             i = 0
         }
         if(operatorflug == 4)
         {
-            temp1 = temp1 / Double(result.text!)!
+            j = j / Double(result.text!)!
+            if(oper != 0)
+            {
+                if(oper == 1)
+                {
+                    i=i+j
+                }
+                if(oper == 2)
+                {
+                    i=i-j
+                }
+            }
+            else
+            {
+                i=j
+            }
             result.text = String(i)
             i = 0
         }
@@ -106,15 +137,17 @@ class ViewController: UIViewController {
         result.text = ""
         if(operatorflug == 0)
         {
-            i = temp1
+            j = temp1
         }
         if(operatorflug == 1)
         {
             j = temp1
+            oper = 1
         }
         if(operatorflug == 2)
         {
-             j = temp1
+            j = temp1
+            oper = 2
         }
         if(operatorflug == 3)
         {
@@ -122,7 +155,7 @@ class ViewController: UIViewController {
         }
         if(operatorflug == 4)
         {
-            i /= temp1
+            j /= temp1
         }
         operatorflug = 3
     }
@@ -136,19 +169,35 @@ class ViewController: UIViewController {
         }
         if(operatorflug == 1)
         {
+            if(oper == 1)
+            {
+                i=i+j
+            }
+            if(oper == 2)
+            {
+                i=i-j
+            }
             i += temp1
         }
         if(operatorflug == 2)
         {
+            if(oper == 1)
+            {
+                i=i+j
+            }
+            if(oper == 2)
+            {
+                i=i-j
+            }
             i -= temp1
         }
         if(operatorflug == 3)
         {
-            i *= temp1
+            j *= temp1
         }
         if(operatorflug == 4)
         {
-            i /= temp1
+            j /= temp1
         }
         operatorflug = 2
     }
@@ -162,10 +211,26 @@ class ViewController: UIViewController {
         }
         if(operatorflug == 1)
         {
+            if(oper == 1)
+            {
+                i=i+j
+            }
+            if(oper == 2)
+            {
+                i=i-j
+            }
             i += temp1
         }
         if(operatorflug == 2)
         {
+            if(oper == 1)
+            {
+                i=i+j
+            }
+            if(oper == 2)
+            {
+                i=i-j
+            }
             i -= temp1
         }
         if(operatorflug == 3)
