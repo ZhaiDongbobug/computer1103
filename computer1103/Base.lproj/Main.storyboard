@@ -185,7 +185,7 @@
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="+/-"/>
                                 <connections>
-                                    <action selector="sign:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HUZ-bv-wUe"/>
+                                    <action selector="sign:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9z1-XK-Ac9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvN-4D-36y">

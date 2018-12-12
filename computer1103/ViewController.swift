@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     var temp1:Double = 0
     var temp2:String = ""
-    var temp3:Int = 0
+    //var temp3:Double = 0
     var operatorflug:Double = 0
     var POT:Bool = true
     var i:Double = 0//i=double(result.text!)
@@ -270,8 +270,8 @@ class ViewController: UIViewController {
         operatorflug = 1
     }
     @IBAction func sign(_ sender: Any) {
-        temp3 = 0 - Int(result.text!)!
-        result.text = "\(temp3)"
+        temp1 = 0 - Double(result.text!)!
+        result.text = "\(temp1)"
     }
     @IBAction func point(_ sender: Any) {
         if(POT)
