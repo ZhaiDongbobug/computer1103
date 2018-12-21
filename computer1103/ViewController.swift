@@ -93,7 +93,14 @@ class ViewController: UIViewController {
         if(operatorflug == 4)
         {
             j = j / Double(result.text!)!
-            i = i + j
+            if(oper == 1)
+            {
+                i = i + j
+            }
+            if(oper == 2)
+            {
+                i = i - j
+            }
             result.text = String(i)
             i = 0
             j = 0
@@ -196,6 +203,7 @@ class ViewController: UIViewController {
             {
                 i = i - j
             }
+            oper = 2
         }
         operatorflug = 2
         //oper = 2
