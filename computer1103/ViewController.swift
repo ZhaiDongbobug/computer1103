@@ -12,8 +12,8 @@ class ViewController: UIViewController {
     var temp1:Double = 0
     var temp2:String = ""
     //var temp3:Double = 0
-    var operatorflug:Double = 0
-    var POT:Bool = true
+    var operatorflug:Double = 0//
+    var POT:Bool = true//是否执行小数点
     var i:Double = 0//i=double(result.text!)
     var j:Double = 0
     var oper:Int = 1//运算符保存
@@ -52,17 +52,17 @@ class ViewController: UIViewController {
     
     
     @IBAction func equal(_ sender: Any) {
-        if(operatorflug == 1)
+        if(operatorflug == 1)//等号之前的最后一个运算符是加
         {
             i = i + Double(result.text!)!
             result.text = String(i)
-            i = 0
-            j = 0
+            i = 0//临时储存加减运算结果
+            j = 0//临时储存乘除运算结果
             POT = true
             operatorflug = 0
             oper = 1
         }
-        if(operatorflug == 2)
+        if(operatorflug == 2)//等号之前的最后一个运算符是减
         {
             i = i - Double(result.text!)!
             result.text = String(i)
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
             operatorflug = 0
             oper = 1
         }
-        if(operatorflug == 3)
+        if(operatorflug == 3)//等号之前的最后一个运算符是乘
         {
             j = j * Double(result.text!)!
             if(oper == 1)
@@ -90,7 +90,7 @@ class ViewController: UIViewController {
             operatorflug = 0
             oper = 1
         }
-        if(operatorflug == 4)
+        if(operatorflug == 4)//等号之前的最后一个运算符是除
         {
             j = j / Double(result.text!)!
             if(oper == 1)
@@ -165,15 +165,15 @@ class ViewController: UIViewController {
     }
     @IBAction func reduce(_ sender: Any) {
       
-        temp1 = Double(result.text!)!
+        temp1 = Double (result.text!)!
         result.text = ""
-        if(operatorflug == 0)
+        if(operatorflug == 0)//之前没有输入任何运算符
         {
-            i = temp1
+            i = temp1//将输入的数字临时储存在i中
         }
-        if(operatorflug == 1)
+        if(operatorflug == 1)//减的运算符之前是加运算符
         {
-            i = i + temp1
+            i = i + temp1//将加运算解决完
         }
         if(operatorflug == 2)
         {
@@ -182,15 +182,15 @@ class ViewController: UIViewController {
         if(operatorflug == 3)
         {
             j = j * temp1
-            if(oper == 1)
+            if(oper == 1)//在上一个乘除运算符之前有加运算符
             {
-                i = i + j
+                i = i + j//将乘除运算结果与之前的加运算结合临时储存在i中
             }
-            if(oper == 2)
+            if(oper == 2)//在上一个乘除运算符之前有减运算符
             {
                 i = i - j
             }
-            oper = 2
+            oper = 2//记住本次调用减
         }
         if(operatorflug == 4)
         {
@@ -205,8 +205,7 @@ class ViewController: UIViewController {
             }
             oper = 2
         }
-        operatorflug = 2
-        //oper = 2
+        operatorflug = 2//调用了减
     }
     @IBAction func plus(_ sender: Any) {
         
@@ -248,8 +247,7 @@ class ViewController: UIViewController {
                 i = i - j
             }
         }
-        operatorflug = 1
-        //oper = 1
+        operatorflug = 1//调用了加
     }
     @IBAction func sign(_ sender: Any) {
         temp1 = 0 - Double(result.text!)!
@@ -260,7 +258,7 @@ class ViewController: UIViewController {
         {
             result.text = result.text! + "."
         }
-        POT = false
+        POT = false//只能调用一次，下次再用另打开
     }
     @IBAction func omit(_ sender: Any) {
         POT = true
